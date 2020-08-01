@@ -1,0 +1,1 @@
+merge into customer_partitioned using all_updates on customer_partitioned.id = all_updates.id when matched then update set email=all_updates.email, state=all_updates.state when not matched then insert values(all_updates.id,all_updates.name,all_updates.email , all_updates.state ,all_updates.signup);

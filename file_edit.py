@@ -1,10 +1,15 @@
-import os
-import re
+import os,re,sys
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-my_file = os.path.join(THIS_FOLDER, 'sample.txt')
-text_file = open("Output.txt", "w")
+if len(sys.argv) < 3:
+   print('Usage: python file-edit.py [source_file_name] [edited_file_name]')
+   sys.exit()
+
+source_file = sys.argv[1]
+target_file = sys.argv[2]
+my_file = os.path.join(THIS_FOLDER, source_file)
+text_file = open(target_file, "w")
 
 with open(my_file,'r') as file:
     q = file.read()
